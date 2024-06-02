@@ -1,0 +1,40 @@
+<div class="wrapper-card" *ngIf="listing">
+    <div class="wrapper-img">
+        <img [src]="listing.images.picture_url">
+    </div>
+
+    <div class="wrapper-details">
+        <div class="inner-wrapper-1">
+            <h4>{{listing.name}}</h4>
+            <div class="reviews">
+                <p>Rating</p>
+                <p>{{listing.number_of_reviews}}  {{listing.number_of_reviews === 1 ? "recensione" : "recensioni"}}</p>
+            </div>
+        </div>
+
+        <div class="summary">
+            <p>{{listing.summary}}</p>
+        </div>
+
+        <div class="wrapper-price">
+
+            <div class="inner-wrapper-2">
+                <p class="bedrooms">Appartamento con {{listing.bedrooms}} {{listing.bedrooms === 1 ? "camera" : "camere"}} da letto</p>
+                
+                <ul class="list-wrapper-details">
+                    <li>{{listing.beds}}  {{listing.beds === 1 ? "letto matrimoniale" : "letti matrimoniali"}}</li>
+
+                    <li>
+                        {{+convertStringToNumber(listing.bathrooms.$numberDecimal).toFixed(1)}} {{+convertStringToNumber(listing.bathrooms.$numberDecimal).toFixed(1) === 1 ? "bagno" : "bagni"}}
+                    </li>
+                </ul>
+                
+            </div>
+
+            <div class="price">
+                <h4>{{listing.price.$numberDecimal | currency: "EUR"}}/Notte</h4>
+            </div>
+            
+        </div>
+    </div>
+</div>

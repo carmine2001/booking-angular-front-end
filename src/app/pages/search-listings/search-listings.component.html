@@ -1,0 +1,28 @@
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand">Listings</a>
+        <form class="d-flex" role="search" [formGroup]="searchForm" (ngSubmit)="onSearch()">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                formControlName="search">
+            <button class="btn btn-outline-success" type="submit" [disabled]="!searchForm.valid">Search</button>
+        </form>
+    </div>
+</nav>
+
+<h2 *ngIf="!listings" class="title-search-key">Inserisci una nazione dove vuoi alloggiare (ES: Spain, Portugal)</h2>
+
+<h3 *ngIf="listings">{{country}}: {{numeroStrutture}} strutture trovate</h3>
+
+<app-listing-card *ngFor="let listing of listings" [listing]="listing" (country)="onCountry($event)"></app-listing-card>
+
+<nav aria-label="..." *ngIf="listings && pages.length > 0">
+    <ul class="pagination">
+        <li class="page-item" [ngClass]="{'disabled': paginator === 1}" (click)="indietro()">
+            <span class="page-link">Indietro</span>
+        </li>
+        <li class="page-item" [ngClass]="{'active': paginator === page}" *ngFor="let page of pages"><a class="page-link" (click)="onClickPage(page)">{{page}}</a></li>
+        <li class="page-item" (click)="avanti()">
+            <a class="page-link" [ngClass]="{'disabled': pages[pages.length-1] == paginator}">Avanti</a>
+        </li>
+    </ul>
+</nav>

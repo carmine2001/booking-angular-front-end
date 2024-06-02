@@ -1,0 +1,47 @@
+.wrapper-card{
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    gap: 0 20px;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.196);
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.wrapper-img img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.inner-wrapper-1{
+    display: flex;
+    justify-content: space-between;
+}
+
+h4{
+    color: rgba(0, 0, 255, 0.667);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.wrapper-price{
+    display: flex;
+    justify-content: space-between;
+}
+
+.inner-wrapper-2{
+    border-left: 1px solid rgba(0, 0, 0, 0.196);
+    padding: 10px;
+}
+
+.inner-wrapper-2 li {
+    list-style: none;
+    margin-right: 10px;
+}
+
+.bedrooms{
+    font-weight: bold;
+}
+
+.list-wrapper-details{
+    display: flex;
+}
